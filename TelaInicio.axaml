@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="320" d:DesignHeight="240"
+        Width="320"
+        Height="240"
+        x:Class="SoftwareBuscaPreco.TelaInicio"
+        Title="Projeto_Busca_Preco"
+        x:Name="WindowTelaInicial"
+        KeyDown="ModifyBarcodeInput">
+        <!--Width tamanho do busca preço: 602, Height: 312-->
+    <Grid>
+        <Grid.Background> 
+            <ImageBrush Source="/Assets/BackgroundNETSide.png" Stretch="Fill"/>
+        </Grid.Background>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel Spacing="15">
+                <Border Width="50" CornerRadius="25" ClipToBounds="True">
+                    <Image Source="/Assets/Logo-NETSide.jpg" Stretch="Fill" />
+                </Border>
+                <StackPanel Spacing="6">
+                    <TextBox MinHeight="0" FontSize="10" Foreground="White" Background="Black" x:Name="Barcode" TextWrapping="NoWrap" Width="136" Watermark="Código de Barras:" Height="25" KeyDown="OnlyNumbers" TextAlignment="Center">
+                        <TextBox.Styles>
+                            <Style Selector="TextBox /template/ Border">
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Background" Duration="0:0:0.1"/>
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+                            <Style Selector="TextBox:pointerover /template/ Border">
+                                <Setter Property="Background" Value="rgba(0, 0, 0, 0.83)"/>
+                            </Style>
+                        </TextBox.Styles>
+                    </TextBox>
+                    <TextBlock Background="rgba(128, 128, 128, 0.37)" FontSize="15" TextWrapping="Wrap" FontWeight="Bold" Foreground="Black" Name="NomeProduto" TextAlignment="Center"/>
+                    <TextBlock Background="rgba(255, 115, 0, 0.33)" FontWeight="Solid" FontSize="20" TextWrapping="Wrap" Foreground="Red" Name="PrecoProduto" TextAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
